@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserPanel.Registration.VerificationActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorWhite">
+
+    <include
+        android:id="@+id/include_verification_toolbar"
+        layout="@layout/custom_toolbar"/>
+
+    <EditText
+        android:id="@+id/edt_verification_code"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:hint="verification"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/btn_verification"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="verify"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/cart_button_corner_white"/>
+
+    <ProgressBar
+        android:id="@+id/verify_progress_dialog"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_marginTop="10sp"
+        android:visibility="gone"/>
+
+</LinearLayout>

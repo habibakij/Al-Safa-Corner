@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200sp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="10sp"
+    app:cardCornerRadius="15sp"
+    android:layout_margin="5sp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10sp">
+
+        <ImageView
+            android:id="@+id/dashbord_recycler_item_image"
+            android:layout_width="match_parent"
+            android:layout_height="155sp"
+            android:src="@drawable/mainlogo"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorGray"/>
+        <TextView
+            android:id="@+id/dashbord_recycler_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="30sp"
+            android:text="@string/app_name"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

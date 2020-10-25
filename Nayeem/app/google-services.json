@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "598395738961",
+    "firebase_url": "https://bajitpur-online-shop.firebaseio.com",
+    "project_id": "bajitpur-online-shop",
+    "storage_bucket": "bajitpur-online-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598395738961:android:af1464b65ec41b44c8d170",
+        "android_client_info": {
+          "package_name": "com.nayeemakij.bajitpuronlineshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598395738961-3ccu94b033g9blkgjtqdp5ta7oon1aq7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nayeemakij.bajitpuronlineshop",
+            "certificate_hash": "f22a6f83bc35222bcc8e1dddbb1dbdeadf18151c"
+          }
+        },
+        {
+          "client_id": "598395738961-bvptsln3b20dcf14k3kdjm9d1cnebm73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO9N4BgzXq3w1QmfHNPRgz5hajOP-L4U0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598395738961-bvptsln3b20dcf14k3kdjm9d1cnebm73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

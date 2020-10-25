@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nayeemakij.bajitpuronlineshop">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/mainlogo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/mainlogo"
+        android:supportsRtl="true"
+        android:theme="@style/CustomAppTheme">
+
+        <activity android:name=".UserPanel.Profile"/>
+        <activity android:name=".AdminPanel.ShowCustomerOrder" />
+        <activity android:name=".UserPanel.OrderConfirm" />
+        <activity android:name=".UserPanel.OrderReview" />
+        <activity android:name=".UserPanel.ProductCard" />
+        <activity android:name=".AdminPanel.FurnitureData" />
+        <activity android:name=".AdminPanel.ToysData" />
+        <activity android:name=".AdminPanel.StationaryData" />
+        <activity android:name=".AdminPanel.FoodsData" />
+        <activity android:name=".AdminPanel.LibraryData" />
+        <!--<activity android:name=".UserPanel.Registration.VerificationActivity" />-->
+
+        <activity android:name=".AdminPanel.AdminDashboard"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name=".UserPanel.Registration.UserRegistration"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".UserPanel.Registration.UserLogIn"
+            android:theme="@style/AppTheme"/>
+
+        <activity
+            android:name=".UserPanel.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Welcome.SplashScreen"
+            android:label="@string/app_name"
+            android:theme="@style/CustomAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

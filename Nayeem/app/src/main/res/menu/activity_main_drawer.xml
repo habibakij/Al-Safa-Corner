@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_library"
+            android:icon="@drawable/library_icon"
+            android:title="@string/menu_library" />
+        <item
+            android:id="@+id/nav_foods"
+            android:icon="@drawable/food_icon"
+            android:title="@string/menu_foods" />
+        <item
+            android:id="@+id/nav_stationary"
+            android:icon="@drawable/stationary_icon"
+            android:title="@string/menu_stationary" />
+        <item
+            android:id="@+id/nav_toy"
+            android:icon="@drawable/toy_icon"
+            android:title="@string/menu_toy" />
+        <item
+            android:id="@+id/nav_furniture"
+            android:icon="@drawable/furniture_icon"
+            android:title="@string/menu_furniture" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:iconTint="@color/colorAccent"
+                android:title="@string/share" />
+
+            <item
+                android:id="@+id/nav_rate_us"
+                android:icon="@drawable/ic_baseline_rate_us"
+                android:iconTint="@color/colorAccent"
+                android:title="@string/rate_us" />
+
+            <item
+                android:id="@+id/nav_about_us"
+                android:icon="@drawable/ic_baseline_person"
+                android:iconTint="@color/colorAccent"
+                android:title="@string/about_us"/>
+
+        </menu>
+    </item>
+
+
+</menu>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_library">
+
+    <fragment
+        android:id="@+id/nav_library"
+        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.LibraryFragment"
+        android:label="@string/menu_library"
+        tools:layout="@layout/fragment_library" />
+
+    <fragment
+        android:id="@+id/nav_foods"
+        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.FoodFragment"
+        android:label="@string/menu_foods"
+        tools:layout="@layout/fragment_food" />
+
+    <fragment
+        android:id="@+id/nav_stationary"
+        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.StationaryFragment"
+        android:label="@string/menu_stationary"
+        tools:layout="@layout/fragment_stationery" />
+
+    <fragment
+        android:id="@+id/nav_toy"
+        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.ToyFragment"
+        android:label="@string/menu_toy"
+        tools:layout="@layout/fragment_toy" />
+
+    <fragment
+        android:id="@+id/nav_furniture"
+        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.FurnitureFragment"
+        android:label="@string/menu_furniture"
+        tools:layout="@layout/fragment_furniture" />
+
+
+</navigation>

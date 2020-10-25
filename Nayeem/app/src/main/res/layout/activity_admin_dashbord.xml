@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E8E7E7"
+    tools:context=".AdminPanel.AdminDashboard">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/admin_dashborad_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8sp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

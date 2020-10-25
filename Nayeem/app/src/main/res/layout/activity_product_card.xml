@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#EFEFEF"
+    tools:context=".UserPanel.ProductCard">
+
+    <include
+        android:id="@+id/include_product_card_toolbar"
+        layout="@layout/custom_toolbar"/>
+
+    <ImageView
+        android:id="@+id/card_product_image"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:scaleType="fitXY"
+        android:src="@drawable/mainlogo"/>
+
+    <TextView
+        android:id="@+id/card_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="10sp"
+        android:layout_marginStart="10sp"
+        android:text="@string/app_name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginStart="10sp"
+        android:orientation="horizontal">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/card_product_item_increment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add"
+            app:civ_border_color="#000"
+            app:civ_border_width="1dp" />
+
+        <TextView
+            android:id="@+id/card_product_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10sp"
+            android:text="1"
+            android:textColor="@color/colorBlack"/>
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/card_product_item_decrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:src="@drawable/ic_baseline_remove"
+            app:civ_border_color="#000"
+            app:civ_border_width="1dp" />
+
+        <TextView
+            android:id="@+id/card_product_prize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50sp"
+            android:text="@string/product_prize"
+            android:textColor="@color/colorBlack"/>
+
+        <ImageView
+            android:layout_width="24sp"
+            android:layout_height="20sp"
+            android:src="@drawable/takalogo"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/card_product_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/product_description"
+        android:layout_marginTop="5sp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginStart="10sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20sp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_related_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50sp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/card_product_next"
+            android:layout_width="match_parent"
+            android:layout_height="46sp"
+            android:text="@string/hint_next"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
