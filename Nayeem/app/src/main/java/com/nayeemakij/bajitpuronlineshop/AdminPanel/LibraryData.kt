@@ -53,20 +53,9 @@ class LibraryData : AppCompatActivity() {
         upload_library_data.setOnClickListener {
             uploadProductData()
         }
-        show_upload_library_data.setOnClickListener {
-
-            /*val preference = applicationContext.getSharedPreferences("STORE_LIBRARY_ID", Context.MODE_PRIVATE)
-            val editor = preference.edit()
-            editor.putInt("LibraryId", id.toInt())
-            editor.apply()
-            editor.commit()*/
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
         upload_product_image_2.setOnClickListener {
             chooseImage()
         }
-
     }
 
     fun chooseImage() {
@@ -86,7 +75,6 @@ class LibraryData : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             imagePathUri = data.data!!
-
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imagePathUri)
                 upload_product_image_2.setImageBitmap(bitmap)

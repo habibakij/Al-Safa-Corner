@@ -7,10 +7,11 @@
 
     <ImageView
         android:id="@+id/custom_toolbar_back"
-        android:layout_width="50sp"
-        android:layout_height="40sp"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:scaleType="fitXY"
         android:layout_centerVertical="true"
-        android:src="@drawable/ic_baseline_back"/>
+        android:src="@drawable/ic_baseline_arrow_back"/>
 
     <TextView
         android:id="@+id/custom_toolbar_title"

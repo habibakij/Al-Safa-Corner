@@ -22,6 +22,7 @@ class AdminDashbordAdapter(private val context: Context?, private val titleList:
     override fun onBindViewHolder(holder: AdminDashboardViewHolder, position: Int) {
         holder.productTitle.text= titleList[position]
         holder.productImage.setImageResource(imageList[position])
+
         holder.productImage.setOnClickListener(){
             if (holder.productTitle.text.toString() == "Library"){
                 val intent= Intent(context, LibraryData::class.java)

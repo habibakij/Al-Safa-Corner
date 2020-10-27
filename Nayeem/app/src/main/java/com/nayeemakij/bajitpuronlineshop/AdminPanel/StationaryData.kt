@@ -53,15 +53,6 @@ class StationaryData : AppCompatActivity() {
         upload_stationary_data.setOnClickListener {
             uploadProductData()
         }
-        show_upload_stationary_data.setOnClickListener {
-            val preference = applicationContext.getSharedPreferences("STORE_STATIONARY_ID", Context.MODE_PRIVATE)
-            val editor = preference.edit()
-            editor.putInt("StationaryId", id.toInt())
-            editor.apply()
-            editor.commit()
-            val intent= Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
         upload_product_image_3.setOnClickListener {
             chooseImage()
         }

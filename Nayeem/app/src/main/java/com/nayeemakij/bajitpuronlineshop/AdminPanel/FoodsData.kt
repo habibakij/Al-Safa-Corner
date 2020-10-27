@@ -54,16 +54,6 @@ class FoodsData : AppCompatActivity() {
         upload_foods_data.setOnClickListener {
             uploadProductData()
         }
-        show_upload_foods_data.setOnClickListener {
-            val preference = applicationContext.getSharedPreferences("STORE_FOODS_ID", Context.MODE_PRIVATE)
-            val editor = preference.edit()
-            editor.putInt("FoodsId", id.toInt())
-            editor.apply()
-            editor.commit()
-
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
         upload_product_image.setOnClickListener {
             choiceImage()
         }

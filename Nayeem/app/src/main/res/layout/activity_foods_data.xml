@@ -127,18 +127,6 @@
             android:text="upload"
             android:textAllCaps="false"
             android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/show_upload_foods_data"
-            android:layout_width="200sp"
-            android:layout_height="40sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10sp"
-            android:background="@drawable/select_background_gradint"
-            android:text="show"
-            android:textAllCaps="false"
-            android:textSize="18sp" />
-
     </LinearLayout>
 
 </LinearLayout>

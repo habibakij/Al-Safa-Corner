@@ -57,17 +57,6 @@ class FurnitureData : AppCompatActivity() {
         upload_furniture_data.setOnClickListener {
             uploadProductData()
         }
-        show_upload_furniture_data.setOnClickListener {
-            val preference = applicationContext.getSharedPreferences("STORE_FURNITURE_ID", Context.MODE_PRIVATE)
-            val editor = preference.edit()
-            editor.putInt("FurnitureId", id.toInt())
-            editor.apply()
-            editor.commit()
-
-            val intent= Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-
         upload_product_image_1.setOnClickListener {
             chooseImage()
         }

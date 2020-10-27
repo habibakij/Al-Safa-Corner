@@ -19,7 +19,6 @@ import com.nayeemakij.bajitpuronlineshop.R
 import com.nayeemakij.bajitpuronlineshop.UserPanel.MainActivity
 import com.nayeemakij.bajitpuronlineshop.UserPanel.Registration.UserLogIn
 import kotlinx.android.synthetic.main.activity_admin_dashbord.*
-
 class AdminDashboard : AppCompatActivity() {
     private var doubleBackToExitPressedOnce = false
     private var imageList = listOf<Int>(
@@ -42,7 +41,6 @@ class AdminDashboard : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
