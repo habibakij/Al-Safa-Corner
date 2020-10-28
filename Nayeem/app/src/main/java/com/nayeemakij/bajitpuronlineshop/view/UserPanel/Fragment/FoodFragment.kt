@@ -1,6 +1,5 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -10,75 +9,61 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cc.cloudist.acplibrary.ACProgressConstant
 import cc.cloudist.acplibrary.ACProgressFlower
-import cc.cloudist.acplibrary.ACProgressPie
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
-import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.Adapter.RecylerAdapter
 import com.nayeemakij.bajitpuronlineshop.Model.ProductInfo
-import com.nayeemakij.bajitpuronlineshop.UserPanel.ProductCard
+import com.nayeemakij.bajitpuronlineshop.R
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.ProductCard
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
-class StationaryFragment : Fragment() {
 
+class FoodFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var databaseReference: DatabaseReference
-    private lateinit var adapter: RecylerAdapter
-    lateinit var animation: Animation
-    lateinit var dialog: ACProgressFlower
+    lateinit var animation:Animation
+    lateinit var dialog:ACProgressFlower
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root = inflater.inflate(R.layout.fragment_stationery, container, false)
+        val root = inflater.inflate(R.layout.fragment_food, container, false)
 
         setDialog()
         animation = AnimationUtils.loadAnimation(context, R.anim.right_enter)
-        val preference = activity?.getSharedPreferences("STORE_STATIONARY_ID", Context.MODE_PRIVATE)
-        val getStationaryId: Int? = preference?.getInt("StationaryId", 0)
-        Log.i("StationaryId", getStationaryId.toString())
-
         viewManager = LinearLayoutManager(context)
-        recyclerView = root.findViewById<RecyclerView>(R.id.stationary_recycler_view).apply {
+        recyclerView = root.findViewById<RecyclerView>(R.id.foods_recycler_view).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
         }
         recyclerView.animation= animation
-        databaseReference = FirebaseDatabase.getInstance().reference.child("ProductDetails").child("Stationary")
-
-        showStationaryData()
+        databaseReference = FirebaseDatabase.getInstance().reference.child("ProductDetails").child("Foods")
+        showFoodData()
 
         return root
     }
 
-    private fun showStationaryData(){
+    private fun showFoodData(){
         val options: FirebaseRecyclerOptions<ProductInfo> =
             FirebaseRecyclerOptions.Builder<ProductInfo>().setQuery(databaseReference, ProductInfo::class.java).build()
 
-        val adapter = object : FirebaseRecyclerAdapter<ProductInfo, StationaryViewHolder>(options) {
-
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StationaryViewHolder {
-                return StationaryViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false))
+        val adapter = object : FirebaseRecyclerAdapter<ProductInfo, FoodViewHolder>(options) {
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
+                return FoodViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false))
             }
-
-            override fun onBindViewHolder(holder: StationaryViewHolder, position: Int, model: ProductInfo) {
+            override fun onBindViewHolder(holder: FoodViewHolder, position: Int, model: ProductInfo) {
                 val adapterReference:DatabaseReference = getRef(position).ref
 
                 adapterReference.addValueEventListener(object : ValueEventListener{
                     override fun onCancelled(p0: DatabaseError) {
                         TODO("Not yet implemented")
                     }
-
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()){
                             dialog.dismiss()
@@ -94,12 +79,12 @@ class StationaryFragment : Fragment() {
                             holder.layout.setOnClickListener {
                                 val intent= Intent(context, ProductCard::class.java)
                                 intent.putExtra("passItemName", snapshot.child("name").value.toString())
-                                Log.i("STORE_LIBRARY_DATA: ", snapshot.child("name").value.toString())
+                                Log.i("STORE_FOOD_DATA: ", snapshot.child("name").value.toString())
                                 intent.putExtra("passItemPrize", snapshot.child("prize").value.toString())
-                                Log.i("STORE_LIBRARY_DATA: ", snapshot.child("prize").value.toString())
+                                Log.i("STORE_FOOD_DATA: ", snapshot.child("prize").value.toString())
                                 intent.putExtra("passItemDescription", snapshot.child("description").value.toString())
-                                Log.i("STORE_LIBRARY_DATA: ", snapshot.child("description").value.toString())
-                                intent.putExtra("CATEGORY_NAME", "Stationary")
+                                Log.i("STORE_FOOD_DATA: ", snapshot.child("description").value.toString())
+                                intent.putExtra("CATEGORY_NAME", "Foods")
                                 startActivity(intent)
                             }
                         }else{
@@ -118,9 +103,10 @@ class StationaryFragment : Fragment() {
         }
         recyclerView.adapter= adapter
         adapter.startListening()
+
     }
 
-    class StationaryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val layout: LinearLayout = itemView.recylar_item_view
         val productImage: ImageView = itemView.item_product_image
         val productName: TextView = itemView.item_product_name
@@ -132,8 +118,8 @@ class StationaryFragment : Fragment() {
     private fun setDialog (){
         dialog = ACProgressFlower.Builder(context)
             .direction(ACProgressConstant.DIRECT_CLOCKWISE)
-            .themeColor(Color.GREEN)
-            .fadeColor(Color.WHITE)
+            .themeColor(Color.RED)
+            .fadeColor(Color.BLACK)
             .build()
         dialog.show()
     }

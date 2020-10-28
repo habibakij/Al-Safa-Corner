@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#EFEFEF"
-    tools:context=".UserPanel.ProductCard">
+    tools:context=".view.UserPanel.ProductCard">
 
     <include
         android:id="@+id/include_product_card_toolbar"

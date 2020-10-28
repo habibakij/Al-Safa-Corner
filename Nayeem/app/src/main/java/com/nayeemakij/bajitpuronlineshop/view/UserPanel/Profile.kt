@@ -1,8 +1,7 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.nayeemakij.bajitpuronlineshop.R

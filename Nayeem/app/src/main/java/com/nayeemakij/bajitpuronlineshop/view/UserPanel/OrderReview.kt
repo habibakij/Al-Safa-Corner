@@ -1,9 +1,7 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.Toast

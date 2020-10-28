@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.Adapter
+package com.nayeemakij.bajitpuronlineshop.vewmodel.Adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.nayeemakij.bajitpuronlineshop.AdminPanel.*
+import com.nayeemakij.bajitpuronlineshop.view.AdminPanel.*
 import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.UserPanel.ProductCard
 
 class AdminDashbordAdapter(private val context: Context?, private val titleList:List<String>, private val imageList: List<Int>):
     RecyclerView.Adapter<AdminDashbordAdapter.AdminDashboardViewHolder>() {

@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment
 
 import android.content.Context
 import android.content.Intent
@@ -19,14 +19,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cc.cloudist.acplibrary.ACProgressConstant
 import cc.cloudist.acplibrary.ACProgressFlower
-import cc.cloudist.acplibrary.ACProgressPie
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
 import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.Adapter.RecylerAdapter
 import com.nayeemakij.bajitpuronlineshop.Model.ProductInfo
-import com.nayeemakij.bajitpuronlineshop.UserPanel.ProductCard
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.ProductCard
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_item.view.*
 

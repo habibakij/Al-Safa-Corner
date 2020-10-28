@@ -15,31 +15,31 @@
         android:supportsRtl="true"
         android:theme="@style/CustomAppTheme">
 
-        <activity android:name=".UserPanel.Profile"/>
-        <activity android:name=".AdminPanel.ShowCustomerOrder" />
-        <activity android:name=".UserPanel.OrderConfirm" />
-        <activity android:name=".UserPanel.OrderReview" />
-        <activity android:name=".UserPanel.ProductCard" />
-        <activity android:name=".AdminPanel.FurnitureData" />
-        <activity android:name=".AdminPanel.ToysData" />
-        <activity android:name=".AdminPanel.StationaryData" />
-        <activity android:name=".AdminPanel.FoodsData" />
-        <activity android:name=".AdminPanel.LibraryData" />
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.Profile"/>
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.AdminPanel.ShowCustomerOrder" />
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.OrderConfirm" />
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.OrderReview" />
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.ProductCard" />
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.AdminPanel.FurnitureData" />
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.AdminPanel.ToysData" />
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.AdminPanel.StationaryData" />
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.AdminPanel.FoodsData" />
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.AdminPanel.LibraryData" />
         <!--<activity android:name=".UserPanel.Registration.VerificationActivity" />-->
 
-        <activity android:name=".AdminPanel.AdminDashboard"
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.AdminPanel.AdminDashboard"
             android:theme="@style/AppTheme"/>
 
-        <activity android:name=".UserPanel.Registration.UserRegistration"
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.Registration.UserRegistration"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".UserPanel.Registration.UserLogIn"
+        <activity android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.Registration.UserLogIn"
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".UserPanel.MainActivity"
+            android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Welcome.SplashScreen"
+            android:name=".view.WelcomeScreen.SplashScreen"
             android:label="@string/app_name"
             android:theme="@style/CustomAppTheme">
             <intent-filter>

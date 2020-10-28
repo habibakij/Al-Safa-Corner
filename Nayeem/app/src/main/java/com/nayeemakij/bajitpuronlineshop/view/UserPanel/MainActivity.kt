@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.ViewGroup
 import android.view.Window
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -30,10 +29,10 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.nayeemakij.bajitpuronlineshop.AdminPanel.AdminDashboard
+import com.nayeemakij.bajitpuronlineshop.view.AdminPanel.AdminDashboard
 import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.*
-import com.nayeemakij.bajitpuronlineshop.UserPanel.Registration.UserLogIn
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment.*
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.Registration.UserLogIn
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.user_logout.*
 

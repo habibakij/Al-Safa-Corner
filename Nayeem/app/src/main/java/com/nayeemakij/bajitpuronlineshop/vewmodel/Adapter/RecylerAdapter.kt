@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.Adapter
+package com.nayeemakij.bajitpuronlineshop.vewmodel.Adapter
 
 import android.content.Context
 import android.content.Intent
@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.nayeemakij.bajitpuronlineshop.R
 import com.nayeemakij.bajitpuronlineshop.Model.ProductInfo
-import com.nayeemakij.bajitpuronlineshop.UserPanel.ProductCard
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.ProductCard
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
 class RecylerAdapter(private val context: Context?, private val mutableList: List<ProductInfo>):

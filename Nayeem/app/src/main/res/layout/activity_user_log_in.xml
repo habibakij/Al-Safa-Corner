@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/logedlogo"
     android:weightSum="5"
-    tools:context=".UserPanel.Registration.UserLogIn">
+    tools:context=".view.UserPanel.Registration.UserLogIn">
 
     <LinearLayout
         android:layout_width="match_parent"

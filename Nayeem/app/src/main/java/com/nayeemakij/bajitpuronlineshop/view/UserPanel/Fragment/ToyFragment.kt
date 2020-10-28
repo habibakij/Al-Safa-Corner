@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment
 
 import android.content.Context
 import android.content.Intent
@@ -19,57 +19,60 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cc.cloudist.acplibrary.ACProgressConstant
 import cc.cloudist.acplibrary.ACProgressFlower
-import cc.cloudist.acplibrary.ACProgressPie
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
-import com.nayeemakij.bajitpuronlineshop.Adapter.RecylerAdapter
+import com.nayeemakij.bajitpuronlineshop.vewmodel.Adapter.RecylerAdapter
 import com.nayeemakij.bajitpuronlineshop.Model.ProductInfo
 import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.UserPanel.ProductCard
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.ProductCard
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
-class LibraryFragment : Fragment() {
+class ToyFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var adapter: RecylerAdapter
+    private var getProductList = mutableListOf<ProductInfo>()
     lateinit var animation: Animation
     lateinit var dialog: ACProgressFlower
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root = inflater.inflate(R.layout.fragment_library, container, false)
+        // Inflate the layout for this fragment
+        val root= inflater.inflate(R.layout.fragment_toy, container, false)
 
         setDialog()
         animation = AnimationUtils.loadAnimation(context, R.anim.right_enter)
-        val preference = activity?.getSharedPreferences("STORE_LIBRARY_ID", Context.MODE_PRIVATE)
-        val getLibraryId: Int? = preference?.getInt("LibraryId", 0)
-        Log.i("LibraryId", getLibraryId.toString())
+        val preference = activity?.getSharedPreferences("STORE_TOYS_ID", Context.MODE_PRIVATE)
+        val getToysId: Int? = preference?.getInt("ToysId", 0)
+        Log.i("ToysId", getToysId.toString())
 
         viewManager = LinearLayoutManager(context)
-        recyclerView = root.findViewById<RecyclerView>(R.id.library_recycler_view).apply {
+        recyclerView = root.findViewById<RecyclerView>(R.id.toys_recycler_view).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
         }
         recyclerView.animation= animation
-        databaseReference = FirebaseDatabase.getInstance().reference.child("ProductDetails").child("Library")
-        showLibraryData()
+        databaseReference = FirebaseDatabase.getInstance().reference.child("ProductDetails").child("Toys")
+
+        showToyData()
 
         return root
     }
 
-    private fun showLibraryData(){
+    private fun showToyData(){
         val options: FirebaseRecyclerOptions<ProductInfo> =
             FirebaseRecyclerOptions.Builder<ProductInfo>().setQuery(databaseReference, ProductInfo::class.java).build()
 
-        val adapter = object : FirebaseRecyclerAdapter<ProductInfo, LibraryViewHolder>(options) {
+        val adapter = object : FirebaseRecyclerAdapter<ProductInfo, ToyViewHolder>(options) {
 
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibraryViewHolder {
-                return LibraryViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false))
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToyViewHolder {
+                return ToyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false))
             }
 
-            override fun onBindViewHolder(holder: LibraryViewHolder, position: Int, model: ProductInfo) {
+            override fun onBindViewHolder(holder: ToyViewHolder, position: Int, model: ProductInfo) {
                 val adapterReference:DatabaseReference = getRef(position).ref
 
                 adapterReference.addValueEventListener(object : ValueEventListener{
@@ -93,16 +96,15 @@ class LibraryFragment : Fragment() {
                             holder.layout.setOnClickListener {
                                 val intent= Intent(context, ProductCard::class.java)
                                 intent.putExtra("passItemName", snapshot.child("name").value.toString())
-                                Log.i("STORE_LIBRARY_DATA: ", snapshot.child("name").value.toString())
+                                Log.i("STORE_TOYS_DATA: ", snapshot.child("name").value.toString())
                                 intent.putExtra("passItemPrize", snapshot.child("prize").value.toString())
-                                Log.i("STORE_LIBRARY_DATA: ", snapshot.child("prize").value.toString())
+                                Log.i("STORE_TOYS_DATA: ", snapshot.child("prize").value.toString())
                                 intent.putExtra("passItemDescription", snapshot.child("description").value.toString())
-                                Log.i("STORE_LIBRARY_DATA: ", snapshot.child("description").value.toString())
-                                intent.putExtra("passImageUri", url)
-                                Log.i("STORE_LIBRARY_DATA: ", url)
-                                intent.putExtra("CATEGORY_NAME", "Library")
+                                Log.i("STORE_TOYS_DATA: ", snapshot.child("description").value.toString())
+                                intent.putExtra("CATEGORY_NAME", "Toys")
                                 startActivity(intent)
                             }
+
                         }else{
                             dialog.dismiss()
                             Toast.makeText(context, "Data not exists: $snapshot", Toast.LENGTH_LONG).show()
@@ -121,7 +123,7 @@ class LibraryFragment : Fragment() {
         adapter.startListening()
     }
 
-    class LibraryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ToyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val layout: LinearLayout = itemView.recylar_item_view
         val productImage: ImageView = itemView.item_product_image
         val productName: TextView = itemView.item_product_name
@@ -140,4 +142,3 @@ class LibraryFragment : Fragment() {
     }
 
 }
-

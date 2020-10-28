@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel.Registration
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel.Registration
 
 import android.content.Intent
 import android.graphics.Color
@@ -11,9 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import cc.cloudist.acplibrary.ACProgressConstant
 import cc.cloudist.acplibrary.ACProgressFlower
 import com.google.firebase.auth.FirebaseAuth
-import com.nayeemakij.bajitpuronlineshop.AdminPanel.AdminDashboard
 import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.UserPanel.MainActivity
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.MainActivity
 import kotlinx.android.synthetic.main.activity_user_log_in.*
 
 class UserLogIn : AppCompatActivity() {

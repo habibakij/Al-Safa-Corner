@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.Adapter
+package com.nayeemakij.bajitpuronlineshop.vewmodel.Adapter
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,23 +1,14 @@
-package com.nayeemakij.bajitpuronlineshop.AdminPanel
+package com.nayeemakij.bajitpuronlineshop.view.AdminPanel
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.GridLayout
-import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
-import com.nayeemakij.bajitpuronlineshop.Adapter.AdminDashbordAdapter
+import com.nayeemakij.bajitpuronlineshop.vewmodel.Adapter.AdminDashbordAdapter
 import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.UserPanel.MainActivity
-import com.nayeemakij.bajitpuronlineshop.UserPanel.Registration.UserLogIn
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.MainActivity
 import kotlinx.android.synthetic.main.activity_admin_dashbord.*
 class AdminDashboard : AppCompatActivity() {
     private var doubleBackToExitPressedOnce = false

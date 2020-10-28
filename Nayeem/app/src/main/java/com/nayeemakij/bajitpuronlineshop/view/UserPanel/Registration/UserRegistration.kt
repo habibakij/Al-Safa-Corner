@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel.Registration
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel.Registration
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,13 +9,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cc.cloudist.acplibrary.ACProgressConstant
 import cc.cloudist.acplibrary.ACProgressFlower
-import cc.cloudist.acplibrary.ACProgressPie
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.UserPanel.MainActivity
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.MainActivity
 import kotlinx.android.synthetic.main.activity_user_registration.*
 
 

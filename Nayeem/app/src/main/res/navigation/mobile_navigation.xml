@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/nav_library"
-        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.LibraryFragment"
+        android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment.LibraryFragment"
         android:label="@string/menu_library"
         tools:layout="@layout/fragment_library" />
 
     <fragment
         android:id="@+id/nav_foods"
-        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.FoodFragment"
+        android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment.FoodFragment"
         android:label="@string/menu_foods"
         tools:layout="@layout/fragment_food" />
 
     <fragment
         android:id="@+id/nav_stationary"
-        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.StationaryFragment"
+        android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment.StationaryFragment"
         android:label="@string/menu_stationary"
         tools:layout="@layout/fragment_stationery" />
 
     <fragment
         android:id="@+id/nav_toy"
-        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.ToyFragment"
+        android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment.ToyFragment"
         android:label="@string/menu_toy"
         tools:layout="@layout/fragment_toy" />
 
     <fragment
         android:id="@+id/nav_furniture"
-        android:name="com.nayeemakij.bajitpuronlineshop.UserPanel.Fragment.FurnitureFragment"
+        android:name="com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment.FurnitureFragment"
         android:label="@string/menu_furniture"
         tools:layout="@layout/fragment_furniture" />
 

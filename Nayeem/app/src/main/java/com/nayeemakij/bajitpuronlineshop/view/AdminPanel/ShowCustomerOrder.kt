@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.AdminPanel
+package com.nayeemakij.bajitpuronlineshop.view.AdminPanel
 
 import android.content.Intent
 import android.graphics.Color
@@ -21,9 +21,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
 import com.nayeemakij.bajitpuronlineshop.Model.CustomerInfo
 import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.UserPanel.MainActivity
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_show_customer_order.*
 import kotlinx.android.synthetic.main.custom_toolbar.view.*
 import kotlinx.android.synthetic.main.customer_item.view.*
 

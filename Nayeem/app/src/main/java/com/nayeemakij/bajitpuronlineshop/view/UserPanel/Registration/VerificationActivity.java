@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel.Registration;
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel.Registration;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,8 +24,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.nayeemakij.bajitpuronlineshop.R;
-import com.nayeemakij.bajitpuronlineshop.AdminPanel.AdminDashboard;
-import com.nayeemakij.bajitpuronlineshop.UserPanel.MainActivity;
+import com.nayeemakij.bajitpuronlineshop.view.AdminPanel.AdminDashboard;
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.MainActivity;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;

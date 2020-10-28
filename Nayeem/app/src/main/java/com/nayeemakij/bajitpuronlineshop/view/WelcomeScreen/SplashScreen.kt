@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.Welcome
+package com.nayeemakij.bajitpuronlineshop.view.WelcomeScreen
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,9 +10,9 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.nayeemakij.bajitpuronlineshop.R
-import com.nayeemakij.bajitpuronlineshop.AdminPanel.AdminDashboard
-import com.nayeemakij.bajitpuronlineshop.UserPanel.MainActivity
-import com.nayeemakij.bajitpuronlineshop.UserPanel.Registration.UserLogIn
+import com.nayeemakij.bajitpuronlineshop.view.AdminPanel.AdminDashboard
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.MainActivity
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.Registration.UserLogIn
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class SplashScreen : AppCompatActivity() {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AdminPanel.StationaryData">
+    tools:context=".view.AdminPanel.StationaryData">
 
     <include
         android:id="@+id/include_stationary_toolbar"

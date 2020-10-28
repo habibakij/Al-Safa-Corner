@@ -1,4 +1,4 @@
-package com.nayeemakij.bajitpuronlineshop.UserPanel
+package com.nayeemakij.bajitpuronlineshop.view.UserPanel
 
 import android.content.Intent
 import android.graphics.Color
