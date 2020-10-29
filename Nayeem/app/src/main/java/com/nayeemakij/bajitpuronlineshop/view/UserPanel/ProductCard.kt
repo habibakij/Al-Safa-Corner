@@ -106,7 +106,8 @@ class ProductCard : AppCompatActivity() {
                         if (snapshot.exists()){
                             dialog.dismiss()
                             holder.relatedItemName.text= snapshot.child("name").value.toString()
-                            holder.relatedItemPrice.text= snapshot.child("prize").value.toString()
+                            val getPrizeFromFirebase= snapshot.child("prize").value.toString()
+                            holder.relatedItemPrice.text= "Price: $getPrizeFromFirebase ৳"
                             val url:String= snapshot.child("image").value.toString()
                             Picasso.get()
                                 .load(url)

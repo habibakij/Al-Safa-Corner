@@ -79,7 +79,10 @@
     <string name="hint_product_size">Product Size</string>
     <string name="hint_delivery_prize">Delivery Prize</string>
     <string name="hint_total">Total:</string>
-    <string name="available">Available</string>
+    <string name="available">Stock: Available</string>
+
+    <!-- TODO -->
+    <string name="admin_email">njnayeem7@gmail.com</string>
 
     <!-- TODO: item activity text  -->
     <string name="full_description">Ecommerce is the activity of electronically buying of products on online services over the Internet.</string>

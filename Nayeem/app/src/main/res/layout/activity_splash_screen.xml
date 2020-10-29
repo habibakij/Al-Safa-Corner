@@ -13,14 +13,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:gravity="center">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/splash_imageview"
-            android:layout_width="200sp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="100sp"
+            android:layout_width="150sp"
+            android:layout_height="150dp"
             android:src="@drawable/mainlogo"
             app:civ_border_color="@color/colorWhite"
             app:civ_border_width="2sp"/>
@@ -54,9 +53,9 @@
             android:id="@+id/textview_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25sp"
-            android:layout_marginLeft="25sp"
             android:layout_marginTop="5sp"
+            android:paddingStart="50sp"
+            android:paddingEnd="0sp"
             android:fontFamily="@font/giette"
             android:gravity="center_horizontal"
             android:text="Take your products"

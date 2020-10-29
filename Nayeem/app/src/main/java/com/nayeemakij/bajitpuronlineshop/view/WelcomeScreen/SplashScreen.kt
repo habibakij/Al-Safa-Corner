@@ -20,7 +20,6 @@ class SplashScreen : AppCompatActivity() {
         val TAG = UserLogIn::class.java.simpleName as String
     }
     private lateinit var mAuth: FirebaseAuth
-    private var adminEmail:String="njnayeem7@gmail.com"
     private lateinit var animationTop: Animation
     private lateinit var animationBottom: Animation
 
@@ -44,11 +43,6 @@ class SplashScreen : AppCompatActivity() {
             if (user==null){
                 Log.d(TAG, "Email: $user")
                 val intent = Intent(this, UserLogIn::class.java)
-                startActivity(intent)
-                finish()
-            } else if (user.equals(adminEmail)) {
-                Log.d(TAG, "Email: $user")
-                val intent = Intent(this, AdminDashboard::class.java)
                 startActivity(intent)
                 finish()
             } else {

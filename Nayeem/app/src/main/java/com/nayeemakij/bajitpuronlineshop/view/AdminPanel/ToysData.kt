@@ -18,6 +18,8 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.nayeemakij.bajitpuronlineshop.R
 import com.nayeemakij.bajitpuronlineshop.Model.ProductInfo
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.MainActivity
+import kotlinx.android.synthetic.main.activity_stationary_data.*
 import kotlinx.android.synthetic.main.activity_toys_data.*
 import kotlinx.android.synthetic.main.custom_toolbar.view.*
 import java.io.IOException
@@ -34,6 +36,7 @@ class ToysData : AppCompatActivity() {
     private lateinit var prize: String
     private lateinit var size: String
     private lateinit var description: String
+    private var checkClickImageView= 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,29 +44,36 @@ class ToysData : AppCompatActivity() {
 
         appBar= findViewById(R.id.include_toys_toolbar)
         appBar.custom_toolbar_back.setOnClickListener(){
-            val intent = Intent(this, AdminDashboard::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
         appBar.custom_toolbar_title.text= getString(R.string.menu_toy)
         storageRef= FirebaseStorage.getInstance().reference
         databaseReference = FirebaseDatabase.getInstance().reference
-        upload_toys_data.setOnClickListener {
-            uploadProductData()
-        }
+
         upload_product_image_4.setOnClickListener {
+            checkClickImageView++
             chooseImage()
+        }
+
+        upload_toys_data.setOnClickListener {
+            if (checkClickImageView>0) {
+                uploadProductData()
+            } else{
+                Toast.makeText(this, "Choose Product Image", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
-    fun chooseImage(){
+    private fun chooseImage(){
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
     }
 
-    fun getFileExtension(uri: Uri?): String? {
+    private fun getFileExtension(uri: Uri?): String? {
         val contentResolver = contentResolver
         val mimeTypeMap = MimeTypeMap.getSingleton()
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri!!))
@@ -88,25 +98,25 @@ class ToysData : AppCompatActivity() {
         prize = upload_product_prize_4.text.toString()
         size = upload_product_size_4.text.toString()
         description = upload_product_description_4.text.toString()
+
         if (id.isEmpty()) {
             upload_product_id_4.error = "Enter Id"
             upload_product_id_4.requestFocus()
         } else if (name.isEmpty()) {
             upload_product_name_4.error = "Enter Name"
             upload_product_name_4.requestFocus()
-            return
         } else if (prize.isEmpty()) {
             upload_product_prize_4.error = "Enter Prize"
             upload_product_prize_4.requestFocus()
-            return
         } else if (size.isEmpty()) {
             upload_product_size_4.error = "Enter Size"
             upload_product_size_4.requestFocus()
-            return
         } else if (description.isEmpty()) {
             upload_product_description_4.error = "Enter Description"
             upload_product_description_4.requestFocus()
-            return
+        } else if (description.length<10) {
+            upload_product_description_4.error = "Description at least 10 char long"
+            upload_product_description_4.requestFocus()
         } else {
             uploadDataFirebase()
         }
@@ -115,9 +125,10 @@ class ToysData : AppCompatActivity() {
     private fun uploadDataFirebase(){
         val progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Uploading...")
+        progressDialog.setMessage("Please wait a few second for uploading.")
         progressDialog.show()
-        val storageReference: StorageReference = storageRef.child("ToyImage")
-            .child(System.currentTimeMillis().toString() + "." + getFileExtension(imagePathUri))
+        val storageReference: StorageReference = storageRef.child("ToyImage").child(System.currentTimeMillis().toString() + "." + getFileExtension(imagePathUri))
+
         storageReference.putFile(imagePathUri).addOnSuccessListener { taskSnapshot ->
             val downloadUrl: Task<Uri> = taskSnapshot.storage.downloadUrl
             while (!downloadUrl.isSuccessful) { }
@@ -133,8 +144,13 @@ class ToysData : AppCompatActivity() {
                     upload_product_prize_4.setText("")
                     upload_product_size_4.setText("")
                     upload_product_description_4.setText("")
+                    checkClickImageView= 0
+                    val intent= Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
         }.addOnFailureListener{exception ->
+            progressDialog.dismiss()
             Log.i("Exception_is: ", exception.message.toString())
             Toast.makeText(this, "Error_is: "+exception.message.toString(),Toast.LENGTH_LONG).show()
         }

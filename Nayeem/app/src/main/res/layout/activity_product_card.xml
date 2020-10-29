@@ -64,17 +64,24 @@
             app:civ_border_width="1dp" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30sp"
+            android:text="Total: "
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
             android:id="@+id/card_product_prize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50sp"
             android:text="@string/product_prize"
             android:textColor="@color/colorBlack"/>
 
-        <ImageView
+        <TextView
             android:layout_width="24sp"
             android:layout_height="20sp"
-            android:src="@drawable/takalogo"/>
+            android:text=" ৳"
+            android:textColor="@color/colorBlack"/>
 
     </LinearLayout>
 

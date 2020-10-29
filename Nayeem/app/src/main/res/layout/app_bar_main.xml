@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,12 +23,64 @@
 
     <include layout="@layout/content_main" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.github.clans.fab.FloatingActionMenu
+        android:visibility="gone"
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:menu_fab_label=""
+        app:menu_openDirection="up"
+        app:menu_showShadow="true"
+        app:menu_shadowColor="@color/colorPrimaryDark"
+        app:menu_colorNormal="@color/appcolor">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_library"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:fab_label="@string/menu_library"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/appcolor"
+            android:src="@drawable/ic_local_library_icon"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_food"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:fab_label="@string/menu_foods"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/appcolor"
+            android:src="@drawable/food_icon"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_stationary"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:fab_label="@string/menu_stationary"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/appcolor"
+            android:src="@drawable/stationary_icon"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_toy"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:fab_label="@string/menu_toy"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/appcolor"
+            android:src="@drawable/toy_icon"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_furniture"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:fab_label="@string/menu_furniture"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/appcolor"
+            android:src="@drawable/furniture_icon"/>
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

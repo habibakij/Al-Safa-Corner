@@ -18,7 +18,9 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.nayeemakij.bajitpuronlineshop.Model.ProductInfo
 import com.nayeemakij.bajitpuronlineshop.R
+import com.nayeemakij.bajitpuronlineshop.view.UserPanel.MainActivity
 import kotlinx.android.synthetic.main.activity_foods_data.*
+import kotlinx.android.synthetic.main.activity_stationary_data.*
 import kotlinx.android.synthetic.main.custom_toolbar.view.*
 import java.io.IOException
 
@@ -34,6 +36,7 @@ class FoodsData : AppCompatActivity() {
     private lateinit var prize: String
     private lateinit var size: String
     private lateinit var description: String
+    private var checkClickImageView= 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +44,7 @@ class FoodsData : AppCompatActivity() {
 
         appBar= findViewById(R.id.include_food_toolbar)
         appBar.custom_toolbar_back.setOnClickListener(){
-            val intent = Intent(this, AdminDashboard::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -49,13 +52,18 @@ class FoodsData : AppCompatActivity() {
         storageRef = FirebaseStorage.getInstance().reference
         databaseReference = FirebaseDatabase.getInstance().reference
 
-        upload_foods_data.setOnClickListener {
-            uploadProductData()
-        }
         upload_product_image.setOnClickListener {
+            checkClickImageView++
             choiceImage()
         }
 
+        upload_foods_data.setOnClickListener {
+            if (checkClickImageView>0) {
+                uploadProductData()
+            } else{
+                Toast.makeText(this, "Choose Product Image", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun uploadProductData() {
@@ -71,32 +79,31 @@ class FoodsData : AppCompatActivity() {
         } else if (name.isEmpty()) {
             upload_product_name.error = "Enter Name"
             upload_product_name.requestFocus()
-            return
         } else if (prize.isEmpty()) {
             upload_product_prize.error = "Enter Prize"
             upload_product_prize.requestFocus()
-            return
         } else if (size.isEmpty()) {
             upload_product_size.error = "Enter Size"
             upload_product_size.requestFocus()
-            return
         } else if (description.isEmpty()) {
             upload_product_description.error = "Enter Description"
             upload_product_description.requestFocus()
-            return
+        } else if (description.length<10) {
+            upload_product_description.error = "Description at least 10 char long"
+            upload_product_description.requestFocus()
         } else {
             uploadDataFirebase()
         }
     }
 
-    fun choiceImage() {
+    private fun choiceImage() {
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
     }
 
-    fun getFileExtension(uri: Uri?): String? {
+    private fun getFileExtension(uri: Uri?): String? {
         val contentResolver = contentResolver
         val mimeTypeMap = MimeTypeMap.getSingleton()
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri!!))
@@ -119,6 +126,7 @@ class FoodsData : AppCompatActivity() {
     private fun uploadDataFirebase() {
         val progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Uploading...")
+        progressDialog.setMessage("Please wait a few second for uploading.")
         progressDialog.show()
 
         val storageReference: StorageReference = storageRef.child("FoodImage")
@@ -141,8 +149,13 @@ class FoodsData : AppCompatActivity() {
                     upload_product_prize.setText("")
                     upload_product_size.setText("")
                     upload_product_description.setText("")
+                    checkClickImageView= 0
+                    val intent= Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
         }.addOnFailureListener{exception ->
+            progressDialog.dismiss()
             Log.i("Exception_is: ", exception.message.toString())
             Toast.makeText(this, "Error_is: "+exception.message.toString(),Toast.LENGTH_LONG).show()
         }

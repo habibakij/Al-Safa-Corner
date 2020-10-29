@@ -7,9 +7,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.view.Window
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -24,25 +26,28 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.github.clans.fab.FloatingActionMenu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.nayeemakij.bajitpuronlineshop.view.AdminPanel.AdminDashboard
 import com.nayeemakij.bajitpuronlineshop.R
+import com.nayeemakij.bajitpuronlineshop.view.AdminPanel.*
 import com.nayeemakij.bajitpuronlineshop.view.UserPanel.Fragment.*
 import com.nayeemakij.bajitpuronlineshop.view.UserPanel.Registration.UserLogIn
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.user_logout.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    lateinit var mAuth: FirebaseAuth
-    private var adminEmail: String? = "njnayeem7@gmail.com"
     companion object {
         val TAG: String = MainActivity::class.java.simpleName
     }
+    lateinit var mAuth: FirebaseAuth
+    //private val adminEmail: String = getString(R.string.admin_email)
     private lateinit var adminCheck:FirebaseUser
+    private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,11 +57,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         adminCheck= mAuth.currentUser!!
         Log.d("currentUser", adminCheck.email.toString())
         loadLibraryFragment()
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+
+        val fab: FloatingActionMenu = findViewById(R.id.fab)
+        if (adminCheck.email.toString() == getString(R.string.admin_email)){
+            fab.visibility= View.VISIBLE
+            clansFloatingAction()
         }
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         toolbar.setTitleTextColor(resources.getColor(R.color.colorWhite))
@@ -64,10 +71,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navView: NavigationView = findViewById(R.id.nav_view)
         val fragment_container:FrameLayout = findViewById(R.id.fragment_container)
 
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
+        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
@@ -81,14 +85,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id: Int = item.itemId
-        if (id == R.id.action_admin) {
-            if (adminCheck.email.toString() == adminEmail) {
-                val intent = Intent(this, AdminDashboard::class.java)
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "Sorry you'r not admin", Toast.LENGTH_LONG).show()
-            }
-        } else if (id == R.id.action_log_out) {
+        if (id == R.id.action_log_out) {
           alertDialog()
         }
         return super.onOptionsItemSelected(item)
@@ -188,5 +185,46 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             dialog.dismiss()
         }
         dialog.show()
+    }
+
+    private fun clansFloatingAction(){
+        fab_library.setOnClickListener(){
+            Toast.makeText(this, "Library", Toast.LENGTH_LONG).show()
+            val intent= Intent(this, LibraryData::class.java)
+            startActivity(intent)
+        }
+        fab_food.setOnClickListener(){
+            Toast.makeText(this, "Food", Toast.LENGTH_LONG).show()
+            val intent= Intent(this, FoodsData::class.java)
+            startActivity(intent)
+        }
+        fab_stationary.setOnClickListener(){
+            Toast.makeText(this, "Stationary", Toast.LENGTH_LONG).show()
+            val intent= Intent(this, StationaryData::class.java)
+            startActivity(intent)
+        }
+        fab_toy.setOnClickListener(){
+            Toast.makeText(this, "Toy", Toast.LENGTH_LONG).show()
+            val intent= Intent(this, ToysData::class.java)
+            startActivity(intent)
+        }
+        fab_furniture.setOnClickListener(){
+            Toast.makeText(this, "Furniture", Toast.LENGTH_LONG).show()
+            val intent= Intent(this, FurnitureData::class.java)
+            startActivity(intent)
+        }
+
+    }
+
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Hit back again for EXIT !", Toast.LENGTH_SHORT).show()
+        Handler().postDelayed(Runnable {
+            doubleBackToExitPressedOnce = false
+        }, 2000)
     }
 }
